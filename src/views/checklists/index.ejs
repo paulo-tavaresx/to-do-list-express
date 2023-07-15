@@ -1,4 +1,4 @@
-<%- include("../layouts/header",{title: "Lista de tarefas"}) %> <%-
+<%- include("../layouts/header",{title: "Nova tarefa"}) %> <%-
 include("../layouts/menu") %>
 
 <section class="section">
@@ -21,7 +21,7 @@ include("../layouts/menu") %>
           <div class="card-content">
             <p class="subtitle is-size-5"><%= checklist.name %></p>
             <p class="subtitle is-size-6">
-              <%= checklist.tasks.count %> tarefas
+              <%= checklist.tasks.length %> tarefas
             </p>
           </div>
           <footer class="card-footer">
@@ -32,12 +32,16 @@ include("../layouts/menu") %>
             </p>
             <p class="card-footer-item">
               <span>
-                <a href="checklist-form.html">Editar</a>
+                <a href="/checklists/<%= checklist._id %>/edit">Editar</a>
               </span>
             </p>
             <p class="card-footer-item">
               <span>
-                <a href="#" class="has-text-danger">Remover</a>
+                <a
+                  href="/checklists/<%= checklist._id %>/?_method=delete"
+                  class="has-text-danger"
+                  >Remover</a
+                >
               </span>
             </p>
           </footer>
